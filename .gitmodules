@@ -1,0 +1,7 @@
+[submodule "meta/dotbot"]
+	path = meta/dotbot
+	url = https://github.com/anishathalye/dotbot.git
+	ignore = dirty
+[submodule "zprezto"]
+	path = zprezto
+	url = git@github.com:blackxored/prezto.git

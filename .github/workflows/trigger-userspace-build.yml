@@ -9,7 +9,7 @@ jobs:
     name: Trigger Userspace Container Build
     runs-on: ubuntu-latest
   steps:
-    - name: Trigger BYOB Container Build
+    - name: "Trigger BYOB Container Build"
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.PAT_TOKEN }}

@@ -1,0 +1,116 @@
+if [[ -f $HOME/.zsh.before ]]; then
+  source "$HOME/.zsh.before"
+fi
+export VISUAL=vim
+export EDITOR=vim
+
+eval "$(direnv hook zsh)"
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+bindkey -v
+bindkey '^r' history-incremental-search-backward    # [Ctrl-r] - Search backward incrementally for a specified string. The string may begin with ^ to anchor the search to the beginning of the line.
+
+# emacs style
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+# Make numpad enter work
+bindkey -s "^[Op" "0"
+bindkey -s "^[Ol" "."
+bindkey -s "^[OM" "^M"
+
+source ~/.zsh-aliases.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if [[ -f $HOME/.zsh.after ]]; then
+  source "$HOME/.zsh.after"
+fi
+
+export ZHISTFILE=~/.zhistory
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
+export PATH="/usr/local/opt/node@12/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="node_modules/.bin:$PATH"
+export PATH="/mnt/c/Users/xored/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+
+alias git='noglob git'
+
+export LAMBDA="ﬦ"
+
+# FZF
+export FZF_DEFAULT_COMMAND="rg --files"
+_gen_fzf_default_opts() {
+  local base03="234"
+  local base02="235"
+  local base01="240"
+  local base00="241"
+  local base0="244"
+  local base1="245"
+  local base2="254"
+  local base3="230"
+  local yellow="136"
+  local orange="166"
+  local red="160"
+  local magenta="125"
+  local violet="61"
+  local blue="33"
+  local cyan="37"
+  local green="64"
+
+  # Comment and uncomment below for the light theme.
+
+  # Solarized Dark color scheme for fzf
+  export FZF_DEFAULT_OPTS="
+    --color fg:-1,bg:-1,hl:$blue,fg+:$base2,bg+:$base02,hl+:$blue
+    --color info:$yellow,prompt:$yellow,pointer:$base3,marker:$base3,spinner:$yellow
+  "
+  ## Solarized Light color scheme for fzf
+  #export FZF_DEFAULT_OPTS="
+  #  --color fg:-1,bg:-1,hl:$blue,fg+:$base02,bg+:$base2,hl+:$blue
+  #  --color info:$yellow,prompt:$yellow,pointer:$base03,marker:$base03,spinner:$yellow
+  #"
+}
+_gen_fzf_default_opts
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --no-mouse --height=50% --reverse --multi --inline-info --bind=?:toggle-preview"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--select-1 --exit-0 --preview '(/usr/local/bin/bat --style=numbers --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+ # Remove duplicate entries from PATH:
+PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export GHQ_ROOT=~/src
+eval "$(direnv hook zsh)"

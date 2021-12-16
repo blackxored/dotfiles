@@ -1,0 +1,25 @@
+- default:
+    link: 
+      create: true
+      relink: true
+
+- clean: ['~']
+
+
+- link:
+    ~/.profile:
+      force: true
+    ~/.gitconfig:
+    ~/.zshrc: 
+      path: zsh/zshrc
+      force: true
+    ~/.p10k.zsh: zsh/p10k.zsh
+    ~/.zprezto: zprezto
+    ~/.zsh-aliases.zsh: zsh/zsh-aliases.zsh
+    ~/.dir_colors: dir_colors
+    ~/bin:
+        path: bin/
+        create: true
+
+- shell:
+    - [git submodule update --recursive --init, Installing submodules]

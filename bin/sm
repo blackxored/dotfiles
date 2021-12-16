@@ -1,0 +1,10 @@
+#!/bin/bash
+cd ~/sm && \
+docker run --rm -it \
+  --dns=8.8.8.8 \
+	--cap-add=NET_ADMIN \
+	--cap-add=SYS_ADMIN \
+	--env-file=./env \
+	--device=/dev/net/tun \
+	-v /etc/localtime:/etc/localtime:ro \
+	sm-pia

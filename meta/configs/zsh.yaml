@@ -1,0 +1,5 @@
+link:
+  $HOME/.zshrc: zsh/zshrc
+  $HOME/.zprezto: zprezto # TODO: move to meta
+  $HOME/.p10k.zsh: zsh/p10k.zsh
+  $HOME/.zsh-aliases.zsh: zsh/zsh-aliases.zsh

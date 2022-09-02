@@ -1,4 +1,4 @@
-- [ ] python-yaml
+- [x] python-yaml
 - [ ] direnv
-- [ ] zpreztorc to dotfiles
+- [x] zpreztorc to dotfiles
 

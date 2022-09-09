@@ -1,3 +1,4 @@
 - link:
     $HOME/.gitconfig: git/gitconfig
+    $HOME/.gitignore: git/gitignore
     $HOME/.config/git/allowed_signers: git/allowed_signers

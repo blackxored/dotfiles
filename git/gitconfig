@@ -11,8 +11,6 @@
   frag = magenta bold
   old = red
   new = green
-[commit]
-  #gpgsign = true
 [alias]
   # add
   a = add                           # add
@@ -130,5 +128,14 @@
 [user]
 	email = adrian@adrianperez.org
 	name = Adrian Perez
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/dczz8HDNoey5TqCkfLvcmFQC7r9HfvSp1de/Lsii6nr5B5ch6juppx23BKQgLk6TaasLMqxLtRnxsqIzN5h9T4dULrpH3VmUqEuEz3yTinNlAqYSBJ6I5rT0x+AjNnAIpAcIrBSD/cUCWDNInBnPfz8aYcfs7SMkwsFZV6EfxHNA1NA0JZhD33bnW95wpcgRKUQ41TSNAmM6suIAsSB1dNSFA5a+p1isg0sVL+GNp+tCY0p1Fj11RoUprYSofqx13Sfr2I9JUHE6TT0s3Ls66kE5RCcZH+1/aLtyEFIeE84AedO1SuAv486Mupxmqpy31gfZXpG94952NHzMPzjcWwD9V47tXveDnn4XguPoL0RT3NorgRN5qGVd3haj70+VUtbmzkJdiZM7Yaa8c4qJHK8N+epJad01ErbBaryVscj01CQb9XmFNZAc9VxlG0wcgdTa2GwLwLRRbUPF8YtCIhOtXg3gAPNUjHm1qwJ2yee06MP/JXkHt5huCMRcfFOkuvw0C9TPYNjekxVKuuqoa3R0bL1i33uI6mn1VIFRiuQzcAg/Rbg8jFH2GdXN78+FX9nvjcboda2vseYJuRMDSxScEthcFxayoaJ1ouE8Wl7L7N8uKkEUKeSqwPpWIeQCv2pN+W2+9KHtTRdH4Apj2TwuB3W3JlCVgWvj5XiFIw== xored@adrian-desktop
 [ghq]
 	root = /home/blackxored/Code/src
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[tag]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /home/xored/.config/git/allowed_signers
